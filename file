@@ -1,0 +1,68 @@
+import numpy as np
+      import pandas as pd
+      from scipy import stats
+
+    def calculator():
+          print("Select operation:")
+          print("1. Addition")
+          print("2. Subtraction")
+          print("3. Multiplication")
+          print("4. Division")
+          print("5. Square Root")
+          print("6. Power")
+          print("7. Mean")
+          print("8. Median")
+          print("9. Mode")
+
+      try:
+         choice = int(input("Enter choice (1/2/3/4/5/6/7/8/9): "))
+           if choice in [1, 2, 3, 4]:
+                   num1 = float(input("Enter first number: "))
+                   num2 = float(input("Enter second number: "))
+
+                   if choice == 1:
+                        print(f"The result of addition is: {np.add(num1, num2)}")
+                   elif choice == 2:
+                        print(f"The result of subtraction is: {np.subtract(num1, num2)}")
+                   elif choice == 3:
+                        print(f"The result of multiplication is: {np.multiply(num1, num2)}")
+                   elif choice == 4:
+                       if num2 != 0:
+                           print(f"The result of division is: {np.divide(num1, num2)}")
+                        else:
+                           print("Error: Division by zero is not allowed.")
+
+            elif choice == 5:
+                    num = float(input("Enter a number to find the square root: "))
+                    if num >= 0:
+                        print(f"The square root of {num} is: {np.sqrt(num)}")
+                    else:
+                        print("Error: Square root of a negative number is not defined.")
+
+            elif choice == 6:
+         base = float(input("Enter the base number: "))
+                    exponent = float(input("Enter the exponent: "))
+                    print(f"The result of {base} raised to the power {exponent} is: {np.power(base, exponent)}")
+
+    
+                elif choice == 7:
+                     data = list(map(float, input("Enter numbers separated by space to find the mean: ").split()))
+                     print(f"The mean is: {np.mean(data)}")
+
+                elif choice == 8:
+                    data = list(map(float, input("Enter numbers separated by space to find the median: ").split()))
+                    print(f"The median is: {np.median(data)}")
+
+                elif choice == 9:
+                     data = list(map(float, input("Enter numbers separated by space to find the mode: ").split()))
+                    mode = stats.mode(data)
+                    print(f"The mode is: {mode.mode[0]} with a count of {mode.count[0]}")
+
+                else: 
+                     print("Invalid input! Please select a valid operation.")
+
+                except ValueError:
+                    print("Invalid input! Please enter numeric values only.")
+
+        if __name__ == "__main__":
+       calculator()
